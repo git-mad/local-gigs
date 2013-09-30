@@ -10,8 +10,8 @@ import android.widget.EditText;
 
 public class HomeActivity extends Activity implements View.OnClickListener{
 
-
     Button button;
+    Button eventListButton;
     EditText textBox;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -19,10 +19,19 @@ public class HomeActivity extends Activity implements View.OnClickListener{
 		setContentView(R.layout.home_activity);
 
         button = (Button)findViewById(R.id.button);
+        eventListButton = (Button)findViewById(R.id.event_button);
         textBox = (EditText)findViewById(R.id.textBox);
         button.setOnClickListener(this);
-
-
+ 
+        //Create another OnClickListener for the local events button.
+        //here is another way to go about making the on click listener:
+        eventListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), EventListActivity.class);
+                startActivity(i);
+            }
+        });
 
 	}
 
