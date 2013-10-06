@@ -25,4 +25,10 @@
         android:layout_height="wrap_content"
         android:text="Event List"
         android:id="@+id/event_button"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GeoDemo"
+            android:id="@+id/geo_button"/>
+
 </LinearLayout>

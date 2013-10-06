@@ -27,6 +27,7 @@ public class TextActivity extends Activity implements View.OnClickListener
 
         Button button = (Button)findViewById(R.id.closebutton);
         button.setOnClickListener(this);
+        //comment
     }
 
     @Override
