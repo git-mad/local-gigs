@@ -2,12 +2,15 @@ package com.gitmad.local_gigs;
 
 import android.app.Activity;
 import android.content.Context;
-import android.location.Criteria;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
+import android.location.*;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,7 +19,7 @@ import android.widget.TextView;
  * Time: 2:16 PM
  * To change this template use File | Settings | File Templates.
  */
-public class GeoActivity extends Activity implements LocationListener {
+public class GeoActivity extends Activity implements LocationListener, View.OnClickListener {
 
     private LocationManager locationManager;
     private String provider;
@@ -76,5 +79,38 @@ public class GeoActivity extends Activity implements LocationListener {
     @Override
     public void onProviderDisabled(String provider) {
         //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public void onClick(View v)
+    {
+        GeocodeTask task = new GeocodeTask();
+        double latitude = Double.parseDouble(latView.getText().toString());
+        double longitude = Double.parseDouble(longView.getText().toString());
+        task.execute(latitude,longitude);
+    }
+
+    private class GeocodeTask extends AsyncTask<Double, String, List<Address>>
+    {
+
+        @Override
+        protected List<Address> doInBackground(Double... params)
+        {
+            Geocoder coder = new Geocoder(GeoActivity.this);
+            List<Address> addresses = new ArrayList<Address>();
+            try
+            {
+                addresses = coder.getFromLocation(params[0], params[1],10);
+
+            }
+            catch(IOException ioex)
+            {}
+            return addresses;
+
+        }
+        protected void onPostExecute(List<Address> results) {
+
+        }
+
     }
 }

@@ -20,6 +20,10 @@
     <TextView android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:id = "@+id/longView"/>
+    <Button android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Geocode!"
+            android:id="@+id/geocode_button"/>
 
 
 </LinearLayout>
