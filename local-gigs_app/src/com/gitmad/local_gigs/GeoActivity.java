@@ -6,7 +6,7 @@ import android.location.*;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,6 +24,8 @@ public class GeoActivity extends Activity implements LocationListener, View.OnCl
     private LocationManager locationManager;
     private String provider;
     private TextView latView, longView;
+    private ListView listView;
+    private Button button;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.geo_activity);
@@ -36,6 +38,11 @@ public class GeoActivity extends Activity implements LocationListener, View.OnCl
 
         latView = (TextView)findViewById(R.id.latView);
         longView = (TextView)findViewById(R.id.longView);
+
+        listView = (ListView)findViewById(R.id.listView);
+
+        button = (Button)findViewById(R.id.geocode_button);
+        button.setOnClickListener(this);
 
         if(location!=null)
         {
@@ -72,8 +79,10 @@ public class GeoActivity extends Activity implements LocationListener, View.OnCl
     }
 
     @Override
-    public void onProviderEnabled(String provider) {
-        //To change body of implemented methods use File | Settings | File Templates.
+    public void onProviderEnabled(String provider)
+    {
+        Toast toast = Toast.makeText(this, provider, Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     @Override
@@ -108,7 +117,13 @@ public class GeoActivity extends Activity implements LocationListener, View.OnCl
             return addresses;
 
         }
-        protected void onPostExecute(List<Address> results) {
+        protected void onPostExecute(List<Address> results)
+        {
+            Address[] resultsarr = new Address[10];
+            results.toArray(resultsarr);
+            ArrayAdapter<Address> adapter = new ArrayAdapter<Address>(GeoActivity.this, android.R.layout.simple_list_item_1, resultsarr);
+            listView.setAdapter(adapter);
+
 
         }
 
