@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter path:"/>
+
+
+    <EditText
+        android:layout_width="367dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/enter_path"
+        android:layout_gravity="center"
+        android:text="/mynumber" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Value:"
+        android:id="@+id/textView"
+        android:layout_gravity="left|center_vertical" />
+
+    <EditText
+        android:layout_width="367dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/enter_value"
+        android:layout_gravity="center" />
+
+    <Button android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="GET"
+            android:id="@+id/get_button"/>
+    <Button android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="POST"
+            android:id="@+id/post_button"/>
+
+    <TextView android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:text="Path"/>
+
+    <TextView android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:id = "@+id/path"/>
+
+    <TextView android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:text="Value"/>
+
+    <TextView android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:id = "@+id/value"/>
+
+</LinearLayout>

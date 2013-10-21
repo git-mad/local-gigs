@@ -1,8 +1,8 @@
 package com.gitmad.local_gigs;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +13,9 @@ public class HomeActivity extends Activity implements View.OnClickListener{
     Button button;
     Button eventListButton;
     Button geoButton;
+    //1
+    Button netButton;
+    //1
     EditText textBox;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,17 @@ public class HomeActivity extends Activity implements View.OnClickListener{
                 startActivity(i);
             }
         });
+
+        //2
+        netButton = (Button) findViewById(R.id.net_button);
+        netButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), NetActivity.class);
+                startActivity(i);
+            }
+        });
+        //2
 
 	}
 
