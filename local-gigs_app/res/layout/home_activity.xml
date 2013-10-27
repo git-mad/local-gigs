@@ -31,4 +31,11 @@
             android:text="GeoDemo"
             android:id="@+id/geo_button"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Networking"
+        android:id="@+id/net_button"
+        android:layout_gravity="left|center_vertical" />
+
 </LinearLayout>

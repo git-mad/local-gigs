@@ -13,6 +13,7 @@ public class HomeActivity extends Activity implements View.OnClickListener{
     Button button;
     Button eventListButton;
     Button geoButton;
+    Button netButton;
     EditText textBox;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,15 @@ public class HomeActivity extends Activity implements View.OnClickListener{
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), GeoActivity.class);
+                startActivity(i);
+            }
+        });
+        netButton = (Button)findViewById(R.id.net_button);
+
+        netButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), NetActivity.class);
                 startActivity(i);
             }
         });

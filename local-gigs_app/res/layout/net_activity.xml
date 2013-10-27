@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Path"/>
+
+    <EditText
+        android:layout_width="344dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/path_field"
+        android:layout_gravity="left|center_vertical"
+        android:text="/mynumber" />
+
+    <TextView android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:text="Value"/>
+
+    <EditText
+        android:layout_width="345dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/value_field"
+        android:layout_gravity="left|center_vertical" />
+
+    <Button android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="GET"
+            android:id="@+id/get_button"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="POST"
+        android:id="@+id/post_button"
+        android:layout_gravity="left|center_vertical" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Path"
+        android:layout_gravity="left|center_vertical" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/result_path"
+        android:layout_gravity="left|center_vertical" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Value"
+        android:layout_gravity="left|center_vertical" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/result_value"
+        android:layout_gravity="left|center_vertical" />
+
+
+</LinearLayout>
