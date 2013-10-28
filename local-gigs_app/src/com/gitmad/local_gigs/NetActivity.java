@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class NetActivity  extends Activity implements  View.OnClickListener {
     private Button get_button, post_button;

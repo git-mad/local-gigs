@@ -10,8 +10,8 @@ import android.widget.EditText;
 
 public class HomeActivity extends Activity implements View.OnClickListener{
 
-    Button button;
-    Button eventListButton;
+    Button artists_button;
+    Button artistSearchButton;
     Button geoButton;
     Button netButton;
     EditText textBox;
@@ -20,20 +20,26 @@ public class HomeActivity extends Activity implements View.OnClickListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home_activity);
 
-        button = (Button)findViewById(R.id.button);
-        eventListButton = (Button)findViewById(R.id.event_button);
-        textBox = (EditText)findViewById(R.id.textBox);
-        button.setOnClickListener(this);
- 
-        //Create another OnClickListener for the local events button.
-        //here is another way to go about making the on click listener:
-        eventListButton.setOnClickListener(new View.OnClickListener() {
+        artists_button = (Button)findViewById(R.id.artists_button);
+        artists_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(v.getContext(), EventListActivity.class);
+                Intent i = new Intent(v.getContext(), ArtistListActivity.class);
                 startActivity(i);
             }
         });
+
+        artistSearchButton = (Button)findViewById(R.id.artist_search_button);
+        //Create another OnClickListener for the local events button.
+        //here is another way to go about making the on click listener:
+        artistSearchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), ArtistActivity.class);
+                startActivity(i);
+            }
+        });
+
         geoButton = (Button)findViewById(R.id.geo_button);
 
         geoButton.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +72,7 @@ public class HomeActivity extends Activity implements View.OnClickListener{
     public void onClick(View v)
     {
         //get text from text box, start activity
-        String text = textBox.getText().toString();
+        String text = "hammers";
         Intent i = new Intent(this, TextActivity.class);
         i.putExtra("My Text", text);
         startActivity(i);

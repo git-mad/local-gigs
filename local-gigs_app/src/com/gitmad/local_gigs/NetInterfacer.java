@@ -1,12 +1,21 @@
 package com.gitmad.local_gigs;
 
+import com.google.gson.Gson;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by thedekel on 10/21/13.
@@ -57,4 +66,44 @@ public class NetInterfacer {
         }
 
     }
+
+    public static ArrayList<String> findArtist(String query){
+        try {
+           String url_str = "http://ws.audioscrobbler.com/2.0/?method=artist.search&artist="
+                   +query+"&api_key=9263072adfc72420902eba3a5e3c938f&format=json";
+           URL url = new URL(url_str);
+           HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+           InputStream in = conn.getInputStream();
+           if (conn.getResponseCode() != HttpURLConnection.HTTP_OK){
+               return null;
+           }
+           InputStreamReader isr = new InputStreamReader(in);
+           BufferedReader br = new BufferedReader(isr);
+           String out = "";
+           String outLine;
+           while ((outLine = br.readLine()) != null) {
+               out += outLine;
+           }
+           Reader string_reader = new StringReader(out);
+           Gson gson = new Gson();
+           APIResponse resp = gson.fromJson(string_reader, APIResponse.class);
+           ArrayList<String> result = new ArrayList<String>(resp.results.artistmatches.artists.size());
+           int i = 0;
+           for (Artist ar: resp.results.artistmatches.artists) {
+               result.set(i, ar.name);
+               i++;
+           }
+           return result;
+        } catch (MalformedURLException e) {
+           e.printStackTrace();
+           return new ArrayList<String>();
+        } catch (IOException e) {
+           e.printStackTrace();
+           return new ArrayList<String>();
+        }
+    }
+/*
+    public static List<Event> findEvent(){
+
+    }*/
 }

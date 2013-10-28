@@ -9,33 +9,39 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".HelloWorld" >
 
-    <EditText
+    <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Text"
-        android:id="@+id/textBox"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Click Me"
-        android:id="@+id/button"/>
+        android:text="My Artists"
+        android:id="@+id/artists_button"
+        android:layout_weight="1"
+        android:layout_gravity="center_horizontal"
+        android:clickable="true" />
     
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Event List"
-        android:id="@+id/event_button"/>
+        android:text="Add Artists"
+        android:id="@+id/artist_search_button"
+        android:layout_weight="1"
+        android:layout_gravity="center_horizontal"
+        android:clickable="true" />
     <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="GeoDemo"
-            android:id="@+id/geo_button"/>
+            android:text="Local Gigs"
+            android:id="@+id/geo_button"
+        android:layout_weight="1"
+        android:layout_gravity="center_horizontal"
+        android:clickable="true" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Networking"
         android:id="@+id/net_button"
-        android:layout_gravity="left|center_vertical" />
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:clickable="true" />
 
 </LinearLayout>
