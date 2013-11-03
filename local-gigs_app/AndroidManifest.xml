@@ -35,6 +35,11 @@
         </activity>
         <activity android:name=".GeoActivity"/>
         <activity android:name=".NetActivity"/>
+<<<<<<< HEAD
+=======
+        <activity android:name=".ArtistActivity" />
+        <activity android:name=".ArtistListActivity" />
+>>>>>>> origin/artists-list
     </application>
 
 </manifest>

@@ -7,6 +7,7 @@
 
     <TextView android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:text="Enter path:"/>
 
 
@@ -29,11 +30,32 @@
         android:layout_height="wrap_content"
         android:id="@+id/enter_value"
         android:layout_gravity="center" />
+=======
+            android:text="Path"/>
+
+    <EditText
+        android:layout_width="344dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/path_field"
+        android:layout_gravity="left|center_vertical"
+        android:text="/mynumber" />
+
+    <TextView android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:text="Value"/>
+
+    <EditText
+        android:layout_width="345dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/value_field"
+        android:layout_gravity="left|center_vertical" />
+>>>>>>> origin/artists-list
 
     <Button android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="GET"
             android:id="@+id/get_button"/>
+<<<<<<< HEAD
     <Button android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="POST"
@@ -54,5 +76,43 @@
     <TextView android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:id = "@+id/value"/>
+=======
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="POST"
+        android:id="@+id/post_button"
+        android:layout_gravity="left|center_vertical" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Path"
+        android:layout_gravity="left|center_vertical" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/result_path"
+        android:layout_gravity="left|center_vertical" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Value"
+        android:layout_gravity="left|center_vertical" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/result_value"
+        android:layout_gravity="left|center_vertical" />
+
+>>>>>>> origin/artists-list
 
 </LinearLayout>
