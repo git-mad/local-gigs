@@ -36,6 +36,7 @@ public class GeoActivity extends Activity implements LocationListener, View.OnCl
         provider = locationManager.getBestProvider(criteria, false);
         Location location = locationManager.getLastKnownLocation(provider);
 
+
         latView = (TextView)findViewById(R.id.latView);
         longView = (TextView)findViewById(R.id.longView);
 

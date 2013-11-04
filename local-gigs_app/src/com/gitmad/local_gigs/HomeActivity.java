@@ -13,13 +13,9 @@ public class HomeActivity extends Activity implements View.OnClickListener{
     Button artists_button;
     Button artistSearchButton;
     Button geoButton;
-<<<<<<< HEAD
-    //1
     Button netButton;
-    //1
-=======
-    Button netButton;
->>>>>>> origin/artists-list
+    Button cameraButton;
+
     EditText textBox;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +27,15 @@ public class HomeActivity extends Activity implements View.OnClickListener{
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), ArtistListActivity.class);
+                startActivity(i);
+            }
+        });
+
+        cameraButton = (Button)findViewById(R.id.camera_button);
+        cameraButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), CameraActivity.class);
                 startActivity(i);
             }
         });

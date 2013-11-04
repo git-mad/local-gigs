@@ -36,6 +36,15 @@
         android:clickable="true" />
 
     <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Camera"
+            android:id="@+id/camera_button"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal"
+            android:clickable="true" />
+
+    <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Networking"
@@ -49,6 +58,7 @@
         android:layout_height="wrap_content"
         android:text="Network"
         android:id="@+id/net_button"
+
         android:layout_gravity="left|center_vertical" />
 
 </LinearLayout>
