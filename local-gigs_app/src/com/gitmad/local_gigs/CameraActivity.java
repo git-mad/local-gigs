@@ -6,6 +6,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.hardware.Camera;
 import android.os.Bundle;
 import android.os.Environment;
@@ -22,6 +23,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -50,6 +52,7 @@ public class CameraActivity extends Activity {
             public void onClick(View v)
             {
                 mCamera.takePicture(null,null,mPicture);
+
             }
         });
 
@@ -119,26 +122,28 @@ public class CameraActivity extends Activity {
         if(mCamera!=null)
             mCamera.release();
     }
+    public static boolean isIntentAvailable(Context context, String action) {
+        final PackageManager packageManager = context.getPackageManager();
+        final Intent intent = new Intent(action);
+        List<ResolveInfo> list =
+                packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+        return list.size() > 0;
+    }
 
     private void getImage() {
-        //use an existing camera
+        //use an existing camera app
+            Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            if(isIntentAvailable(this, MediaStore.ACTION_IMAGE_CAPTURE))
+            {
 
-        try
-        {
-            Intent cameraIntent = new Intent();
-            //this is the action the intent will start
-            cameraIntent.setType(MediaStore.ACTION_IMAGE_CAPTURE);
+
+
             //If you want a custom name and location, uncomment
             //cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
-            startActivityForResult(cameraIntent, 100);
-        }
-        catch(ActivityNotFoundException afex)
-        {
-            AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-            dialog.setMessage("No camera app on device");
-            dialog.create().show();
+                startActivityForResult(cameraIntent, 100);
+            }
 
-        }
+
 
     }
 
@@ -150,7 +155,7 @@ public class CameraActivity extends Activity {
             {
                 if(resultCode==RESULT_OK)
                 {
-                    Toast.makeText(this,"Image saved in: "+data.getData(), Toast.LENGTH_SHORT);
+                    Toast.makeText(this,"Image saved in: "+data.getData(), Toast.LENGTH_SHORT).show();
                 }
             }
     }
@@ -176,6 +181,7 @@ public class CameraActivity extends Activity {
                 Camera.getCameraInfo( camIdx, cameraInfo );
                 if ( cameraInfo.facing == Camera.CameraInfo.CAMERA_FACING_FRONT  ) {
                    c = Camera.open(camIdx);
+
                 }
             }
         }
