@@ -15,6 +15,7 @@ public class HomeActivity extends Activity implements View.OnClickListener{
     Button geoButton;
     Button netButton;
     Button cameraButton;
+    Button sensorsButton;
 
     EditText textBox;
 	@Override
@@ -70,15 +71,25 @@ public class HomeActivity extends Activity implements View.OnClickListener{
             }
         });
 
-        //2
-        netButton = (Button) findViewById(R.id.net_button);
-        netButton.setOnClickListener(new View.OnClickListener() {
+        sensorsButton = (Button)findViewById(R.id.sensors_button);
+
+        sensorsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(v.getContext(), NetActivity.class);
+                Intent i = new Intent(v.getContext(), SensorReadings.class);
                 startActivity(i);
             }
         });
+
+        //2
+//        netButton = (Button) findViewById(R.id.net_button);
+//        netButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(v.getContext(), NetActivity.class);
+//                startActivity(i);
+//            }
+//        });
         //2
 
 	}

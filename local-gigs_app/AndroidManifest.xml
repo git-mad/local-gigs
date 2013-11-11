@@ -7,15 +7,21 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="18" />
-    <uses-permission  android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature android:name="android.hardware.camera" android:required="false" />
-    <uses-feature android:name="android.hardware.camera.front" android:required="false" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -23,26 +29,32 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".HomeActivity"
+            android:name="com.gitmad.local_gigs.HomeActivity"
             android:label="@string/app_name" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" /> 
+                <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TextActivity"
-                  android:label="@string/app_name">
+        <activity
+            android:name="com.gitmad.local_gigs.TextActivity"
+            android:label="@string/app_name" >
         </activity>
-                <activity android:name=".EventListActivity"
-                  android:label="@string/app_name">
+        <activity
+            android:name="com.gitmad.local_gigs.EventListActivity"
+            android:label="@string/app_name" >
         </activity>
-        <activity android:name=".GeoActivity"/>
-        <activity android:name=".NetActivity"/>
-        <activity android:name=".ArtistActivity" />
-        <activity android:name=".ArtistListActivity" />
-        <activity android:name=".CameraActivity"/>
-        <activity android:name=".CameraPreview"/>
+        <activity android:name="com.gitmad.local_gigs.GeoActivity" />
+        <activity android:name="com.gitmad.local_gigs.NetActivity" />
+        <activity android:name="com.gitmad.local_gigs.ArtistActivity" />
+        <activity android:name="com.gitmad.local_gigs.ArtistListActivity" />
+        <activity android:name="com.gitmad.local_gigs.CameraActivity" />
+        <activity android:name="com.gitmad.local_gigs.CameraPreview" />
+        <activity
+            android:name="com.gitmad.local_gigs.SensorReadings"
+            android:label="@string/title_activity_sensor_readings" >
+        </activity>
     </application>
 
 </manifest>
