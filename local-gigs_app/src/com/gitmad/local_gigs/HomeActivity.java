@@ -1,7 +1,11 @@
 package com.gitmad.local_gigs;
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -15,6 +19,7 @@ public class HomeActivity extends Activity implements View.OnClickListener{
     Button geoButton;
     Button netButton;
     Button cameraButton;
+    Button notificationsButton;
 
     EditText textBox;
 	@Override
@@ -80,7 +85,44 @@ public class HomeActivity extends Activity implements View.OnClickListener{
             }
         });
         //2
+        
+        notificationsButton = (Button)findViewById(R.id.notifications_button);
 
+        notificationsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            	launchNotification(v);
+            } 
+        });
+
+	}
+	
+	public void launchNotification(View view)
+	{
+
+       Intent intent = new Intent(view.getContext(), NotificationReceiverActivity.class);
+       PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+       long[] vibrate_pattern = new long[]{1000};
+       
+       // Construct the notification
+       //we can add up to three actions here, but right now they don't do anything.
+       Notification noti = new Notification.Builder(this)
+           .setContentTitle("Thanks for using LocalGigs!")
+           .setContentText("Subject").setSmallIcon(R.drawable.gitmad_logo)
+           .setStyle(new Notification.BigTextStyle().bigText("This is an example of how you can have a longer string of " +
+           		"text in your notifications, so that you can add extra detail for your users!" +
+           		" Please add more artists"))
+           .setContentIntent(pIntent)
+           .setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 }) //example of how we can add things like vibration
+           .addAction(R.drawable.gitmad_logo, "Call", pIntent)
+           .addAction(R.drawable.gitmad_logo, "More", pIntent)
+           .addAction(R.drawable.gitmad_logo, "And more", pIntent).build();
+       NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+       // hide the notification after its selected
+       noti.flags |= Notification.FLAG_AUTO_CANCEL;
+
+       notificationManager.notify(0, noti);
 	}
 
 	@Override
